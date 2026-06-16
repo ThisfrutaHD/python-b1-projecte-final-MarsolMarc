@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class FoodPackage (ABC): 
     @abstractmethod
     def pack(self)  -> str:
