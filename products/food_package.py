@@ -24,7 +24,7 @@ class Bottle(FoodPackage):
         return "Plastic Bottle"
     
     def material(self):
-        return "Plasctic"
+        return "Plastic"
       
 
 class Glass(FoodPackage):  
