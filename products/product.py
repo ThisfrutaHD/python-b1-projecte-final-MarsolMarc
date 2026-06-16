@@ -1,8 +1,9 @@
 from abc import ABC, abstractmethod
+from .food_package import FoodPackage, Wrapping, Bottle, Glass, Box
 
 
 class Product(ABC):
-    def __init__(self, id:str, name:str, price:float):
+    def __init__(self, id: str, name: str, price: float):
       self.id = id
       self.name = name
       self.price = price     
@@ -15,7 +16,7 @@ class Product(ABC):
         pass
 
     @abstractmethod
-    def foodPackage(self)->FoodPackage:
+    def foodPackage(self) -> FoodPackage:
         pass  
 
 
@@ -31,15 +32,27 @@ class Hamburger(Product):
 
 
 class Soda(Product):
-    #Write your code here
-    pass
+    #No posem el constructor com en la class Hamburger d'exemple, ja que ja es crida el constructor de la classe pare.
+    def type(self) -> str:
+        return "Soda"
+    
+    def foodPackage(self) -> FoodPackage:
+        return Bottle()
 
 
 class Drink(Product):
-    #Write your code here
-    pass
+    #Constructor s'hereta de classe Pare.
+    def type(self) -> str:
+        return "Drink"
+    
+    def foodPackage(self) -> FoodPackage:
+        return Glass()
 
 
 class HappyMeal(Product):
-    #Write your code here
-    pass
+    #Constructor s'hereta de classe Pare.
+    def type(self) -> str:
+        return "Happy Meal"
+    
+    def foodPackage(self) -> FoodPackage:
+        return Box()
