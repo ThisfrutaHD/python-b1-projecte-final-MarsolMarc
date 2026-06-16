@@ -3,6 +3,7 @@ from .food_package import FoodPackage, Wrapping, Bottle, Glass, Box
 
 
 class Product(ABC):
+
     def __init__(self, id: str, name: str, price: float):
       self.id = id
       self.name = name
@@ -21,6 +22,7 @@ class Product(ABC):
 
 
 class Hamburger(Product):
+
     def __init__(self, id:str, name:str, price:float):
         super().__init__(id, name, price)
 
@@ -32,6 +34,7 @@ class Hamburger(Product):
 
 
 class Soda(Product):
+
     #No posem el constructor com en la class Hamburger d'exemple, ja que ja es crida el constructor de la classe pare.
     def type(self) -> str:
         return "Soda"
@@ -41,6 +44,7 @@ class Soda(Product):
 
 
 class Drink(Product):
+
     #Constructor s'hereta de classe Pare.
     def type(self) -> str:
         return "Drink"
@@ -50,6 +54,7 @@ class Drink(Product):
 
 
 class HappyMeal(Product):
+
     #Constructor s'hereta de classe Pare.
     def type(self) -> str:
         return "Happy Meal"

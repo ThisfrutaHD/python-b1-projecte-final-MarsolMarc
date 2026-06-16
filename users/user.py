@@ -2,6 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class User(ABC):
+
     def __init__(self, dni: str, name: str, age: int):
         self.dni = dni
         self.name = name
@@ -13,6 +14,7 @@ class User(ABC):
 
 
 class Cashier(User): 
+
     def __init__(self, dni: str, name: str, age: int, timeTable: str, salary: float):
         super().__init__(dni, name, age)
         self.timeTable = timeTable
@@ -23,6 +25,7 @@ class Cashier(User):
 
 
 class Customer(User):
+
     def __init__(self,dni: str, name: str, age: int, email: str, postalCode: str):
         super().__init__(dni, name, age)
         self.email = email
