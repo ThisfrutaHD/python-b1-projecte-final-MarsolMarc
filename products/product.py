@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 #Write your code here
 
 class Product(ABC):
-    def __init__(self,id:str,name:str,price:float):
+    def __init__(self, id:str, name:str, price:float):
       self.id = id
       self.name = name
       self.price = price     
@@ -18,8 +18,8 @@ class Product(ABC):
         pass  
 
 class Hamburger(Product):
-    def __init__(self,id:str,name:str,price:float):
-        super().__init__(id,name,price)
+    def __init__(self, id:str, name:str, price:float):
+        super().__init__(id, name, price)
     def type(self) -> str:
         return "Hamburguesa"
     def foodPackage(self) -> FoodPackage:
