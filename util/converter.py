@@ -5,7 +5,7 @@ from abc import ABC, abstractmethod
 class Converter(ABC):
 
     @abstractmethod
-    def convert(self,dataFrame,*args) -> list:
+    def convert(self, dataFrame, *args) -> list:
         pass  
   
     def print(self, objects):
