@@ -27,12 +27,12 @@ f.	Agregar productos: Utilizar la instancia la clase 'Order', del paso c y llama
 
 
 """
-#Write your code here
-from users import *
 from util import CSVFileManager, CashierConverter, CustomerConverter, ProductConverter
 from orders import Order
 from users import Cashier, Customer
-    
+from products import Product
+
+
 class PrepareOrder:
 
     def __init__(self):
@@ -79,3 +79,25 @@ class PrepareOrder:
             if customer.dni == dni:
                 return customer
         return None
+    
+    def find_product(self, product_id: str) -> Product | None:
+        for product in self.products:
+            if product.id == product_id:
+                return product
+        return None
+    
+    def run(self):
+        self.load_data()
+
+        cashier_dni = input("Introdueixi el DNI del caixer:")
+        cashier = self.find_cashier(cashier_dni)
+        if cashier is None:
+            print("DNI no trobat...")
+            return
+        
+        customer_dni = input("Introdueixi el DNI del client:")
+        customer = self.find_customer(customer_dni)
+        if customer is None:
+            print("Client no trobat")
+            return
+        
