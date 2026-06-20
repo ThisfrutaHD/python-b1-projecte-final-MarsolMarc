@@ -20,12 +20,12 @@ class Order:
         return total_price
   
     def show(self):
-        print("\n===== ORDER =====\n")
-        print(f"Hello : {self.customer.describe()}")
-        print(f"Was attended by : {self.cashier.describe()}")
+        print("\n===== ORDER =====")
+        print(f"\nHello: {self.customer.describe()}")
+        print(f"\nWas attended by: {self.cashier.describe()}")
         print("\n--- PRODUCTS ---\n")
-        for product in self.products:
-            print(product.describe())
+        for i, product in enumerate(self.products, start=1):
+            print(f"Product {i}: {product.describe()}")
         print("\n------------------")
-        print(f"Total price : {self.calculateTotal()}")
+        print(f"Total price: {self.calculateTotal()}")
         print("==================\n")
