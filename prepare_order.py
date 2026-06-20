@@ -146,5 +146,9 @@ class PrepareOrder:
                 print("Resposta no vàlida: Introdueix (Si/No): ")
             if seguir == "no":
                 break
-        #Mostrem la comanda completa.
+        # Mostrem la comanda completa.
         order.show()
+
+if __name__ == "__main__":
+    app = PrepareOrder()
+    app.run()
