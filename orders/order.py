@@ -20,10 +20,10 @@ class Order:
         return total_price
   
     def show(self):
-        print("\n===== COMANDA =====\n")
+        print("\n===== ORDER =====\n")
         print(f"Hello : {self.customer.describe()}")
         print(f"Was attended by : {self.cashier.describe()}")
-        print("\n--- PRODUCTES ---\n")
+        print("\n--- PRODUCTS ---\n")
         for product in self.products:
             print(product.describe())
         print("\n------------------")
