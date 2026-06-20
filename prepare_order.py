@@ -131,7 +131,7 @@ class PrepareOrder:
             print(p.describe())
         # Demanem i afegim productes a la comanda
         while True:
-            product_id = input("Introdueixi ID del producte: ")
+            product_id = input("Introdueixi ID del producte: ").upper()
             product = self.find_product(product_id)
             if product is None:
                 print("Producte no trobat...")
