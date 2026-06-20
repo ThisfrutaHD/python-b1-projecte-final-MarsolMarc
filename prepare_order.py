@@ -41,31 +41,31 @@ class PrepareOrder:
         self.products = []
 
     def load_data(self):
-        #DataFrame + convert Cashiers
+        # DataFrame + convert Cashiers
         df_cashiers = CSVFileManager("data/cashiers.csv").read()
         self.cashiers = CashierConverter().convert(df_cashiers)
 
-        #Dataframe + convert Customers
+        #D ataframe + convert Customers
         df_customers = CSVFileManager("data/customers.csv").read()
         self.customers = CustomerConverter().convert(df_customers)
 
-        #Dataframe + converts products/hamburgers
+        # Dataframe + converts products/hamburgers
         df_hamburgers = CSVFileManager("data/hamburgers.csv").read()
         hamburgers = ProductConverter().convert(df_hamburgers, "Hamburger")
        
-        #Dataframe + converts products/sodas
+        # Dataframe + converts products/sodas
         df_sodas = CSVFileManager("data/sodas.csv").read()
         sodas = ProductConverter().convert(df_sodas, "Soda")
         
-        #Dataframe + converts products/drinks
+        # Dataframe + converts products/drinks
         df_drinks = CSVFileManager("data/drinks.csv").read()
         drinks = ProductConverter().convert(df_drinks, "Drink")
         
-        #Dataframe + converts products/happymeals
+        # Dataframe + converts products/happymeals
         df_happymeals = CSVFileManager("data/happyMeal.csv").read()
         happymeals = ProductConverter().convert(df_happymeals, "HappyMeal")
         
-        #Unim els products en una mateixa llista
+        # Unim els products en una mateixa llista
         self.products = hamburgers + sodas + drinks + happymeals
 
     def find_cashier(self, dni: str) -> Cashier | None:
@@ -87,17 +87,132 @@ class PrepareOrder:
         return None
     
     def run(self):
-        self.load_data()
+        self.load_data()  # Carreguem la info
 
-        cashier_dni = input("Introdueixi el DNI del caixer:")
-        cashier = self.find_cashier(cashier_dni)
+        # Cashier té 5 intents, si cap és correcte s'atura programa.
+        max_attempts = 5
+        attempts = 0
+        cashier = None
+
+        while attempts < max_attempts:
+            cashier_dni = input("Introdueixi el DNI del caixer:")
+            cashier = self.find_cashier(cashier_dni)
+            if cashier is not None:
+                break
+            print("DNI del caixer no trobat...")
+            attempts += 1
         if cashier is None:
-            print("DNI no trobat...")
-            return
-        
-        customer_dni = input("Introdueixi el DNI del client:")
-        customer = self.find_customer(customer_dni)
+            print("Massa intents. Reinicia el programa.")
+            return  # Parem execució si no s'ha trobat dni
+
+        # Customer té 5 intents, si cap és correcte s'atura programa.
+        attempts = 0
+        customer = None
+
+        while attempts < max_attempts:
+            customer_dni = input("Introdueixi el DNI del client:")
+            customer = self.find_customer(customer_dni)
+            if customer is not None:
+                break
+            print("DNI del client no trobat...")
+            attempts += 1
         if customer is None:
-            print("Client no trobat")
-            return
+            print("Massa intents. Reinicia el programa.")
+            return  # Parem execució si no s'ha trobat dni
         
+        # Mostrem productes disponibles del menú
+        order = Order(cashier, customer)
+        print("\n--- MENÚ ---")
+        for product in self.products:
+            print(product.describe())
+        while True:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def runnnnnnn(self):
+    self.load_data()
+
+    # CASHIER (fins a 5 intents)
+    max_attempts = 5
+    attempts = 0
+    cashier = None
+
+    while attempts < max_attempts:
+        cashier_dni = input("Introdueixi el DNI del caixer: ")
+        cashier = self.find_cashier(cashier_dni)
+
+        if cashier is not None:
+            break  # ✅ trobat → sortir del loop
+
+        print("DNI no trobat...")
+        attempts += 1
+
+    if cashier is None:
+        print("Massa intents. Reinicia el programa.")
+        return
+
+    # CUSTOMER (fins a 5 intents)
+    attempts = 0
+    customer = None
+
+    while attempts < max_attempts:
+        customer_dni = input("Introdueixi el DNI del client: ")
+        customer = self.find_customer(customer_dni)
+
+        if customer is not None:
+            break  # ✅ trobat → sortir del loop
+
+        print("Client no trobat...")
+        attempts += 1
+
+    if customer is None:
+        print("Massa intents. Reinicia el programa.")
+        return
