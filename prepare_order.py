@@ -1,36 +1,8 @@
-"""
-Finalmente tendremos una clase principal que se llamará ‘PrepareOrder’ en la cual se deberá realizar una implementación 
-que permita integrar los diferentes módulos empleados para leer los archivos en formato CSV y convertirlos en objetos. 
-La implementación de esta clase es libre, es decir, no indicaremos las funciones que debe contener, pero la funcionalidad 
-de la clase debe permitir crear una opción de menú que permita buscar los clientes, los cajeros y los productos para 
-finalmente crear una orden. 
-
-Se sugiere utilizar los métodos de entrada de teclado para leer los datos del dni cajero, cliente e id de los productos. 
-
-
-A grandes rasgos, la aplicación seguiría los siguientes pasos:
-
-1)	Leer archivos en formato csv: 
-a.	Leer cada archivo en formato csv: Utilizar una instancia de la clase 'CSVFileManager' y llamar al método 'read()'.
-2)	Convertir a listas de objetos:
-a.	Convertir cajeros: Función creada por el alumno  
-b.	Convertir clientes: Función creada por el alumno 
-c.	Convertir productos: Función creada por el alumno 
-3)	Preparar Orden:
-a.	Buscar cajero por dni: Función creada por el alumno y debe devolver una instancia de tipo cajero.
-b.	Buscar cliente por dni. Función creada por el alumno y debe devolver una instancia de tipo cliente.
-c.	Inicializar Orden: Utilizar una instancia la clase 'Order', e inicializar con su constructor por defecto.
-d.	Mostrar productos a vender: Función creada por el alumno.
-e.	Escoger productos: Función creada por el alumno.
-f.	Agregar productos: Utilizar la instancia la clase 'Order', del paso c y llamar al método 'add()'.
-4)	Mostrar Orden: Utilizar la instancia la clase 'Order', del paso c y llamar al método 'show()'
-
-
-"""
 from util import CSVFileManager, CashierConverter, CustomerConverter, ProductConverter
 from orders import Order
 from users import Cashier, Customer
 from products import Product
+import pandas as pd
 
 
 class PrepareOrder:
@@ -163,6 +135,10 @@ class PrepareOrder:
                 break
         # Mostrem la comanda completa.
         order.show()
+
+        data = [order.to_dict()]  # Creem dict
+        df_export = pd.DataFrame(data)  # Guardem el DataFrame
+        CSVFileManager("data/orders.csv").write(df_export)
 
 
 if __name__ == "__main__":

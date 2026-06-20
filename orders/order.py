@@ -1,5 +1,6 @@
 from users import *
 from products import *
+from datetime import datetime
 
 
 class Order:
@@ -29,3 +30,12 @@ class Order:
         print("\n------------------")
         print(f"Total price: {self.calculateTotal()}")
         print("==================\n")
+
+    # Servira per implementar la funcio write de CSVFileManager
+    def to_dict(self):
+        return {
+            "cashier_dni": self.cashier.dni,
+            "customer_dni": self.customer.dni,
+            "datetime": datetime.now(),
+            "total": self.calculateTotal()
+        }
