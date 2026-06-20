@@ -95,7 +95,7 @@ class PrepareOrder:
         cashier = None
 
         while attempts < max_attempts:
-            cashier_dni = input("Introdueixi el DNI del caixer:")
+            cashier_dni = input("Introdueixi el DNI del caixer: ")
             cashier = self.find_cashier(cashier_dni)
             if cashier is not None:
                 break
@@ -111,7 +111,7 @@ class PrepareOrder:
         customer = None
 
         while attempts < max_attempts:
-            customer_dni = input("Introdueixi el DNI del client:")
+            customer_dni = input("Introdueixi el DNI del client: ")
             customer = self.find_customer(customer_dni)
             if customer is not None:
                 break
