@@ -138,7 +138,7 @@ class PrepareOrder:
 
         data = [order.to_dict()]  # Creem dict
         df_export = pd.DataFrame(data)  # Guardem el DataFrame
-        CSVFileManager("data/orders.csv").write(df_export)
+        CSVFileManager("data/orders.csv").write(df_export)  #Creem fitxer i exportem dades
 
 
 if __name__ == "__main__":
