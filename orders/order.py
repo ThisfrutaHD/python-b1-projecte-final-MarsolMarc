@@ -19,9 +19,13 @@ class Order:
             total_price += product.price
         return total_price
   
-    def show(self):    
+    def show(self):
+        print("\n===== COMANDA =====\n")
         print(f"Hello : {self.customer.describe()}")
         print(f"Was attended by : {self.cashier.describe()}")
+        print("\n--- PRODUCTES ---\n")
         for product in self.products:
             print(product.describe())
+        print("\n------------------")
         print(f"Total price : {self.calculateTotal()}")
+        print("==================\n")
