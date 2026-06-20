@@ -155,6 +155,7 @@ class PrepareOrder:
         # Mostrem la comanda completa.
         order.show()
 
+
 if __name__ == "__main__":
     app = PrepareOrder()
     app.run()
