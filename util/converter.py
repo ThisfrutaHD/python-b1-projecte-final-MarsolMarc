@@ -20,8 +20,8 @@ class CashierConverter(Converter):
         result = []
 
         for _, row in dataFrame.iterrows():
-            cashier = Cashier( #creem objectes i els guardem a la llista.
-                str(row["dni"]), #Forçem tipus str per evitar discrepàncies amb pandes
+            cashier = Cashier(  # creem objectes i els guardem a la llista.
+                str(row["dni"]),  # Forçem tipus str per evitar discrepàncies amb pandes
                 row["name"],
                 row["age"],
                 row["timetable"],
@@ -39,8 +39,8 @@ class CustomerConverter(Converter):
 
         for _, row in dataFrame.iterrows():
             customer = Customer(
-                str(row["dni"]), #Forçem tipus str per evitar discrepàncies amb pandas
-                row["name"], #Accés per nom de columna (independent de l'ordre del CSV)
+                str(row["dni"]),  # Forçem tipus str per evitar discrepàncies amb pandas
+                row["name"],  # Accés per nom de columna (independent de l'ordre del CSV)
                 row["age"],
                 row["email"],
                 row["postalcode"]
@@ -57,7 +57,7 @@ class ProductConverter(Converter):
 
         for _, row in dataFrame.iterrows():
             if product_type == "Hamburger":
-                product = Hamburger(str(row["id"]), row["name"], float(row["price"])) #Forçem tipus str i float per evitar discrepàncies amb pandas
+                product = Hamburger(str(row["id"]), row["name"], float(row["price"]))  # Forçem tipus str i float per evitar discrepàncies amb pandas
             elif product_type == "Soda":
                 product = Soda(str(row["id"]), row["name"], float(row["price"]))
             elif product_type == "Drink":

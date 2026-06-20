@@ -35,7 +35,7 @@ class Hamburger(Product):
 
 class Soda(Product):
 
-    #No posem el constructor com en la class Hamburger d'exemple, ja que ja es crida el constructor de la classe pare.
+    # No posem el constructor com en la class Hamburger d'exemple, ja que ja es crida el constructor de la classe pare.
     def type(self) -> str:
         return "Soda"
     
@@ -45,7 +45,7 @@ class Soda(Product):
 
 class Drink(Product):
 
-    #Constructor s'hereta de classe Pare.
+    # Constructor s'hereta de classe Pare.
     def type(self) -> str:
         return "Drink"
     
@@ -55,7 +55,7 @@ class Drink(Product):
 
 class HappyMeal(Product):
 
-    #Constructor s'hereta de classe Pare.
+    # Constructor s'hereta de classe Pare.
     def type(self) -> str:
         return "Happy Meal"
     
