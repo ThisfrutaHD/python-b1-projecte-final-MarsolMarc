@@ -89,6 +89,15 @@ class PrepareOrder:
     def run(self):
         self.load_data()  # Carreguem la info
 
+        """        
+        # Mostrar caixers disponibles / no entenc si l'enunciat demana mostrar
+        els caixers disponibles abans d'introduir el dni del cashier o no.
+        En el cas que si es volgues nomes s'ha de descomentar el següent codi.
+        print("\n--- CAIXERS DISPONIBLES ---")
+        for c in self.cashiers:
+            print(c.describe())
+        """ 
+
         # Cashier té 5 intents, si cap és correcte s'atura programa.
         max_attempts = 5
         attempts = 0
