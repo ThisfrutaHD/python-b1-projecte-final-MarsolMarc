@@ -91,9 +91,10 @@ class PrepareOrder:
 
         #Mostro els caixers disponibles segons he entès en l'enunciat
         #En cas de no voler nomes esborrar
-        print("\n--- CAIXERS DISPONIBLES ---")
+        print("\n--- CAIXERS DISPONIBLES ---\n")
         for c in self.cashiers:
             print(c.describe())
+        print()
         
         # Cashier té 5 intents, si cap és correcte s'atura programa.
         max_attempts = 5
@@ -110,7 +111,14 @@ class PrepareOrder:
         if cashier is None:
             print("Massa intents. Reinicia el programa.")
             return  # Parem execució si no s'ha trobat dni
+        print()
         print(cashier.describe())
+
+        # Mostrem els clients disponibles
+        print("\n--- CLIENTS DISPONIBLES ---\n")
+        for c in self.customers:
+            print(c.describe())
+        print()
 
         # Customer té 5 intents, si cap és correcte s'atura programa.
         attempts = 0
@@ -126,23 +134,24 @@ class PrepareOrder:
         if customer is None:
             print("Massa intents. Reinicia el programa.")
             return  # Parem execució si no s'ha trobat dni
+        print()
         print(customer.describe())
 
         # Instanciem la clase Order()
         order = Order(cashier, customer)
 
         # Mostrem llista de productes a vendre
-        print("\n--- MENÚ DISPONIBLE ---")
+        print("\n--- MENÚ DISPONIBLE ---\n")
         for p in self.products:
             print(p.describe())
         # Demanem i afegim productes a la comanda
         while True:
-            product_id = input("Introdueixi ID del producte: ").upper()
+            product_id = input("\nIntrodueixi ID del producte: ").upper()
             product = self.find_product(product_id)
             if product is None:
                 print("Producte no trobat...")
                 continue
-            print(product.describe())  # Mostrem descripcio producte.
+            print(f"\nAdded product: {product.describe()}")  # Mostrem descripcio producte.
             order.add(product)  # Afegim producte al order.
             # Preguntem si es volen afegir més productes.
             while True:
